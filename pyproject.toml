@@ -1,0 +1,175 @@
+# ==============================================================================
+# The [project] table defined by Official python.org
+#
+# Read: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+# ==============================================================================
+[project]
+name = "sakura_gather"
+# Increment version before each release - follow `semantic versioning <https://semver.org/>`_
+# Currently, poetry 2.1.X doesn't support dynamic versioning
+# (Read https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#version)
+# So this value has to be aligned with the one in ``sakura_gather/_version.py``
+version = "0.1.1"
+description = "Sakura Gather"
+# Read https://dev-exp-share.readthedocs.io/en/latest/search.html?q=Pick+An+Open+Source+License+For+Python+Project&check_keywords=yes&area=default
+# To pick a license and update the ``license``, ``classifier`` field in ``pyproject.toml``
+# And also update the ``LICENSE.txt`` file in the git repo.
+license = "Proprietary"
+license-files = ["LICENSE.txt", "AUTHORS.rst"]
+authors = [
+    { name = "Angora King", email = "angoraking@email.com" },
+]
+maintainers = [
+    { name = "Angora King", email = "angoraking@email.com" },
+]
+keywords = []
+readme = "README.rst"
+# Files to include in the package distribution
+include = [
+    "*.txt",
+    "*.rst",
+]
+# Files to exclude from the package
+exclude = [
+    "*.pyc",
+    "*.pyo",
+    "sakura_gather/docs/*",
+    "sakura_gather/tests/*",
+]
+requires-python = ">=3.13,<4.0"
+# Full list of classifiers: https://pypi.org/classifiers/
+classifier = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: Other/Proprietary License",
+    "Natural Language :: English",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: Unix",
+    # Note: classfier like "Programming Language :: Python :: 3 :: Only",
+    # "Programming Language :: Python :: 3.X" is no longer needed,
+    # because we have ``requires-python`` field.
+]
+
+# ------------------------------------------------------------------------------
+# Core Dependencies
+# ------------------------------------------------------------------------------
+dependencies = [
+    "sakura_site_msav==0.1.1",
+]
+
+# ------------------------------------------------------------------------------
+# Optional dependency that can be used in ``pip install ${your_project_name}[${feature_name}]``
+# Sometime this is also called "extras"
+# Read: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#dependencies-optional-dependencies
+#
+# IMPORTANT: all optional dependencies has to be compatible with the "requires-python" field
+# ------------------------------------------------------------------------------
+[project.optional-dependencies]
+
+# ------------------------------------------------------------------------------
+# Local Development dependenceies
+# ------------------------------------------------------------------------------
+dev = [
+    "twine>=6.0.0,<7.0.0", # distribute package to PyPI
+    "wheel>=0.45.0,<1.0.0", # build wheel package
+    "build>=1.2.1,<2.0.0", # build source distribution
+    "rich>=13.8.1,<14.0.0", # pretty print
+]
+
+# ------------------------------------------------------------------------------
+# (Unit/Coverage/Integration/Load) Test dependenceies
+# ------------------------------------------------------------------------------
+test = [
+    "pytest>=8.2.2,<9.0.0", # Testing framework
+    "pytest-cov>=6.0.0,<7.0.0", # Coverage reporting
+]
+
+# ------------------------------------------------------------------------------
+# Documentation build dependenceies
+# ------------------------------------------------------------------------------
+doc = [
+    "Sphinx>=7.4.7,<8.0.0",
+    "sphinx-copybutton>=0.5.2,<1.0.0", # add copy button to code block
+    "sphinx-design>=0.6.1,<1.0.0", # add additional design pattern to sphinx
+    "sphinx-jinja>=2.0.2,<3.0.0", # enable jinja syntax in reStructuredText
+    "furo==2024.8.6", # the furo sphinx theme
+    "pygments>=2.18.0,<3.0.0", # syntax highlight
+    "ipython>=8.18.1,<8.19.0", # interactive Python
+    "nbsphinx>=0.8.12,<1.0.0", # add jupyter notebook in sphinx doc
+    "rstobj>=1.2.1,<2.0.0", # generate reStructuredText from Python code
+    "docfly>=3.0.0,<4.0.0", # automaticall generate .. toctree directives and API reference doc
+]
+
+# ------------------------------------------------------------------------------
+# Automation (devops) dependenceies
+# ------------------------------------------------------------------------------
+auto = [
+]
+
+# Quick Links
+[project.urls]
+Homepage = "https://github.com/angoraking/sakura_gather-project"
+Documentation = "https://sakura-gather.pages.dev"
+Repository = "https://github.com/angoraking/sakura_gather-project"
+Issues = "https://github.com/angoraking/sakura_gather-project/issues"
+Changelog = "https://github.com/angoraking/sakura_gather-project/blob/main/release-history.rst"
+Download = "https://pypi.org/pypi/sakura-gather#files"
+
+# For command line interface, read: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+[project.scripts]
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.9.0,<2.0.0"
+
+# python workflow tool config
+[tool.pywf]
+# The specific python version you use for local development
+dev_python = "3.13.5"
+# --- github.com
+github_account = "angoraking"
+# Create GitHub token in https://github.com/settings/tokens and put the token in
+# ``${HOME}/home_secret.json``
+github_token_field = "providers.github.accounts.sh.users.sh.secrets.dev.value"
+# --- codecov.io (for code coverage test report)
+codecov_account = "angoraking"
+# Create Codecov token in https://app.codecov.io/account/gh/${codecov_account}/access
+# and put the token in ``${HOME}/home_secret.json``
+codecov_token_field = "providers.codecov_io.accounts.sh.users.sh.secrets.dev.value"
+# --- AWS
+# The AWS profile you use for publishing to AWS CodeArtifact
+aws_region = "us-east-1"
+aws_codeartifact_profile = "bmt_app_devops_us_east_1"
+# The AWS CodeArtifact domain you use
+# You should avoid using any hyphen and underscore in your domain name
+# You can find the exact name at: https://console.aws.amazon.com/codesuite/codeartifact/domains
+aws_codeartifact_domain = "bmt"
+# The AWS CodeArtifact Python repository you use
+# You should use a-z, 0-9, and hyphen in your repository name
+# You can find the exact name at: https://console.aws.amazon.com/codesuite/codeartifact/repositories
+aws_codeartifact_repository = "bmt-python"
+# If you want to use AWS S3 to store versioned document histories
+# fill in ``doc_host_aws_profile``, ``doc_host_s3_bucket`` and ``doc_host_s3_prefix``
+# The AWS profile you use for doc site deployment (upload to S3)
+# leave empty string "" if you don't use it
+doc_host_aws_profile = "bmt_app_devops_us_east_1"
+# The AWS S3 bucket you use to store your documentation website files
+doc_host_s3_bucket = "bmt-app-devops-us-east-1-doc-host"
+# --- cloudflare.com (for document host)
+# Create CloudFlare User API token in https://dash.cloudflare.com/profile/api-tokens
+# Give it the following permission:
+# All accounts - Cloudflare Pages:Read, Cloudflare Pages:Edit
+# All users - Memberships:Read, User Details:Read
+# And put the token in ``${HOME}/home_secret.json``
+cloudflare_token_field = "providers.cloudflare.accounts.bmt.users.sh_bmt.secrets.cloudflare_pages_upload.value"
+
+
+# Read: https://python-poetry.org/docs/repositories/
+[[tool.poetry.source]]
+name = "bmt"
+url = "https://bmt-862612136886.d.codeartifact.us-east-1.amazonaws.com/pypi/bmt-python/simple/"
+priority = "supplemental"
+
+[build-system] # Read: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#declaring-the-build-backend
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"

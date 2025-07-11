@@ -1,0 +1,10 @@
+
+Copyright (c) 2025 Angora King <angoraking@email.com>
+
+All rights reserved.
+
+This software is proprietary and confidential. Unauthorized copying, modification, distribution, or use of this software, in whole or in part, is strictly prohibited unless prior written permission is obtained from the copyright holder.
+
+This software is provided "as is" without warranty of any kind, either express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement.
+
+For licensing inquiries or commercial use, please contact: Angora King <angoraking@email.com>.
