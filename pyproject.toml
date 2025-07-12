@@ -55,6 +55,7 @@ classifier = [
 # Core Dependencies
 # ------------------------------------------------------------------------------
 dependencies = [
+    "smart_open==7.1.0",
     "sakura_site_msav==0.1.2",
 ]
 
