@@ -30,7 +30,7 @@ with bsm_dev.awscli():
 project.crawl_all_video_details_in_one_html_database(
     lang_code=LangCodeEnum.cn.value,
     node_id=0,
-    big_batch_size=300,
-    micro_batch_size=60,
+    big_batch_size=10,
+    micro_batch_size=3,
 )
 # project.step_04_01_crawl_all_video_details_in_all_html_database(lang_code=LangCodeEnum.cn.value)
