@@ -40,7 +40,10 @@ setup = SetupIamUser(
             {
                 "Sid": "VisualEditor1",
                 "Effect": "Allow",
-                "Action": "dynamodb:ListTables",
+                "Action": [
+                    "dynamodb:ListTables",
+                    "iam:ListAccountAliases",
+                ],
                 "Resource": "*",
             },
         ],
@@ -70,5 +73,5 @@ if __name__ == "__main__":
         setup.s23_delete_iam_policy()
         setup.s24_delete_iam_user()
 
-    # setup_all()
-    # teardown_all()
+    setup_all()
+    teardown_all()
