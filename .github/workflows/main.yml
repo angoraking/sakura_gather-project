@@ -84,6 +84,6 @@ jobs:
       # Run pytest with coverage reporting
       - name: "Run pytest"
         run: |
-          python run.py
+          .venv/bin/python run.py
       - name: === 🛑 END OF THE JOB ===
         run: echo "END OF THE JOB"
