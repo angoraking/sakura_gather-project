@@ -21,6 +21,9 @@ jobs:
     runs-on: "${{ matrix.os }}"
     env:
       USER_ENV_NAME: devops
+      DEV_ACC_AWS_REGION: ${{ secrets.DEV_ACC_AWS_REGION }}
+      DEV_ACC_AWS_ACCESS_KEY_ID: ${{ secrets.DEV_ACC_AWS_ACCESS_KEY_ID }}
+      DEV_ACC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_ACC_AWS_SECRET_ACCESS_KEY }}
     # ref: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
     strategy:
       # The matrix strategy allows you to run multiple combinations of configurations
@@ -32,7 +35,7 @@ jobs:
 #        os: ["windows-latest", ] # Commented out configurations for quick debugging
         # Define the Python versions to test with
         # python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        python-version: [ "3.11", ] # Commented out configurations for quick debugging
+        python-version: [ "3.13", ] # Commented out configurations for quick debugging
     steps:
       - name: === 💾 PREPARATION ===
         run: echo "PREPARATION"
@@ -41,19 +44,10 @@ jobs:
       - name: 🔐 Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.DEVOPS_AWS_ACCOUNT_ID }}:role/ghoidc-esc_aws_codeartifacts_only-devops-us-east-1
-          role-session-name: devops_role_session
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           disable-retry: true
-      - name: 🛠 Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-#      - name: 💾 Install CDK in Node
-#        run: |
-#          npm install -g aws-cdk@2.1010.0
-#          which cdk
-#          cdk --version
       - name: 🐍 Setup Python with pip cache
         uses: actions/setup-python@v5
         with:
@@ -66,7 +60,7 @@ jobs:
       - name: Install poetry
         run: |
           python -m pip install -r requirements-poetry.txt
-          python -m pip install "pywf_internal_proprietary>=0.1.10,<1.0.0"
+          python -m pip install "pywf_internal_proprietary>=0.1.11,<1.0.0"
       # Second Python setup specifically for project dependencies managed by Poetry
       - uses: actions/setup-python@v5
         with:
@@ -89,13 +83,5 @@ jobs:
       - name: "Run pytest"
         run: |
           python bin/g3_t2_s1_run_cov_test.py
-      # See https://github.com/cloudflare/wrangler-action
-      - if: ${env.GITHUB_REF_NAME } == 'doc'
-        name: "Build Documentation Website and Publish to Cloudflare"
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          run: |
-            python bin/g4_t2_s1_build_doc.py
-            python bin/g4_t4_s2_deploy_cloudflare_pages.py
       - name: === 🛑 END OF THE JOB ===
         run: echo "END OF THE JOB"
