@@ -83,6 +83,7 @@ dev = [
 test = [
     "pytest>=8.2.2,<9.0.0", # Testing framework
     "pytest-cov>=6.0.0,<7.0.0", # Coverage reporting
+    "home_secret>=0.1.1,<1.0.0",
 ]
 
 # ------------------------------------------------------------------------------
@@ -130,7 +131,7 @@ dev_python = "3.13.5"
 github_account = "angoraking"
 # Create GitHub token in https://github.com/settings/tokens and put the token in
 # ``${HOME}/home_secret.json``
-github_token_field = "providers.github.accounts.sh.users.sh.secrets.dev.value"
+github_token_field = "providers.github.accounts.ak.users.ak.secrets.dev.value"
 # --- codecov.io (for code coverage test report)
 codecov_account = "angoraking"
 # Create Codecov token in https://app.codecov.io/account/gh/${codecov_account}/access

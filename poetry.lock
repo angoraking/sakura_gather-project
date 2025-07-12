@@ -987,6 +987,24 @@ files = [
 ]
 
 [[package]]
+name = "home-secret"
+version = "0.1.1"
+description = "A unified JSON-based secret management system for local development environments with lazy loading, alias-based security, and automatic IDE integration."
+optional = true
+python-versions = "<4.0,>=3.9"
+groups = ["main"]
+markers = "extra == \"test\""
+files = [
+    {file = "home_secret-0.1.1-py3-none-any.whl", hash = "sha256:fef0a3f8f68e59e7c210ed366d0600a3b18e791e750917a11d6c0523b5248dea"},
+    {file = "home_secret-0.1.1.tar.gz", hash = "sha256:03628aa6e9f1fa3661183da994091183c1de0c91f75d912e5f9538ca60c79cd7"},
+]
+
+[package.extras]
+dev = ["build (>=1.2.1,<2.0.0)", "rich (>=13.8.1,<14.0.0)", "twine (>=6.0.0,<7.0.0)", "wheel (>=0.45.0,<1.0.0)"]
+doc = ["Sphinx (>=7.4.7,<8.0.0)", "docfly (==3.0.0)", "furo (==2024.8.6)", "ipython (>=8.18.1,<8.19.0)", "nbsphinx (>=0.8.12,<1.0.0)", "pygments (>=2.18.0,<3.0.0)", "rstobj (==1.2.1)", "sphinx-copybutton (>=0.5.2,<1.0.0)", "sphinx-design (>=0.6.1,<1.0.0)", "sphinx-jinja (>=2.0.2,<3.0.0)"]
+test = ["pytest (>=8.2.2,<9.0.0)", "pytest-cov (>=6.0.0,<7.0.0)"]
+
+[[package]]
 name = "httpcore"
 version = "1.0.9"
 description = "A minimal low-level HTTP client."
@@ -4247,9 +4265,9 @@ files = [
 auto = []
 dev = ["build", "rich", "twine", "wheel"]
 doc = ["Sphinx", "docfly", "furo", "ipython", "nbsphinx", "pygments", "rstobj", "sphinx-copybutton", "sphinx-design", "sphinx-jinja"]
-test = ["pytest", "pytest-cov"]
+test = ["home_secret", "pytest", "pytest-cov"]
 
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "f906aa8ebc4360340e251af487ad8e81745be275bbdcedde85b04f2030d0c222"
+content-hash = "3b258b15b8a033557ce4d1a9978ed49d0b3c58eadf1b30348fd5eb4636aa39d0"
