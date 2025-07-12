@@ -3223,14 +3223,14 @@ crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
 
 [[package]]
 name = "sakura-site-msav"
-version = "0.1.1"
+version = "0.1.2"
 description = "missav 网站数据采集项目"
 optional = false
 python-versions = ">=3.13,<4.0"
 groups = ["main"]
 files = [
-    {file = "sakura_site_msav-0.1.1-py3-none-any.whl", hash = "sha256:6ac54c833468a56cb95e2472b9c6b65535a7fa9467213382ada3fc76c2bceca8"},
-    {file = "sakura_site_msav-0.1.1.tar.gz", hash = "sha256:f119ecd96416e8c315f8f53232fb9ed92a51e5bc714121049186b5e451bfed04"},
+    {file = "sakura_site_msav-0.1.2-py3-none-any.whl", hash = "sha256:aec7efa18502a0ce1fad9215c45f1ead0b6f0bc73f9719cfc5e6399743728d5d"},
+    {file = "sakura_site_msav-0.1.2.tar.gz", hash = "sha256:52fddcbc852935fad236826a1045504c7556d82b20f8a43d789372d0dadde7ac"},
 ]
 
 [package.dependencies]
@@ -3268,7 +3268,7 @@ xxhash = ">=3.5.0,<4.0.0"
 [package.extras]
 dev = ["boto3_stubs[s3] (>=1.38.0,<2.0.0)", "build (>=1.2.1,<2.0.0)", "rich (>=13.8.1,<14.0.0)", "twine (>=6.0.0,<7.0.0)", "wheel (>=0.45.0,<1.0.0)"]
 doc = ["Sphinx (>=7.4.7,<8.0.0)", "docfly (>=3.0.0,<4.0.0)", "furo (==2024.8.6)", "ipython (>=8.18.1,<8.19.0)", "nbsphinx (>=0.8.12,<1.0.0)", "pygments (>=2.18.0,<3.0.0)", "rstobj (>=1.2.1,<2.0.0)", "sphinx-copybutton (>=0.5.2,<1.0.0)", "sphinx-design (>=0.6.1,<1.0.0)", "sphinx-jinja (>=2.0.2,<3.0.0)"]
-test = ["home-secret (>=0.1.1,<1.0.0)", "pytest (>=8.2.2,<9.0.0)", "pytest-cov (>=6.0.0,<7.0.0)"]
+test = ["home-secret (>=0.1.1,<1.0.0)", "moto (>=5.0.0,<6.0.0)", "pytest (>=8.2.2,<9.0.0)", "pytest-cov (>=6.0.0,<7.0.0)"]
 
 [package.source]
 type = "legacy"
@@ -4270,4 +4270,4 @@ test = ["home_secret", "pytest", "pytest-cov"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "3b258b15b8a033557ce4d1a9978ed49d0b3c58eadf1b30348fd5eb4636aa39d0"
+content-hash = "d16385b0bf28d159190c2fb0c9525a0081d5780a02ab1d62bbb9ceb88a6e3e29"
