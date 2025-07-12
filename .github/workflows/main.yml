@@ -82,7 +82,7 @@ jobs:
           python bin/g2_t1_s2_poetry_login.py
           python bin/g2_t2_s2_install.py
       # Run pytest with coverage reporting
-      - name: "Run pytest"
+      - name: "Run Unit Test"
         run: |
           .venv/bin/python run.py
       - name: === 🛑 END OF THE JOB ===

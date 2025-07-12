@@ -28,3 +28,4 @@ bsm_dev = BotoSesManager(
 with bsm_dev.awscli():
     project.bsm.print_who_am_i(masked=True)
 project.bsm.print_who_am_i(masked=True)
+project.step_04_01_crawl_all_video_details_in_all_html_database(lang_code=LangCodeEnum.cn.value)
