@@ -1,10 +1,8 @@
 name: CI
 
 on:
-  push: # Workflow will run on any push event to the main branch
-    branches: ["main", "doc"]
-  pull_request: # Workflow will run on any pull request targeting the main branch
-    branches: ["main", "doc"]
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
   workflow_dispatch: # Allows you to manually trigger the workflow from the GitHub UI
 
 env:
