@@ -3223,14 +3223,14 @@ crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
 
 [[package]]
 name = "sakura-site-msav"
-version = "0.1.2"
+version = "0.1.3"
 description = "missav 网站数据采集项目"
 optional = false
 python-versions = ">=3.13,<4.0"
 groups = ["main"]
 files = [
-    {file = "sakura_site_msav-0.1.2-py3-none-any.whl", hash = "sha256:aec7efa18502a0ce1fad9215c45f1ead0b6f0bc73f9719cfc5e6399743728d5d"},
-    {file = "sakura_site_msav-0.1.2.tar.gz", hash = "sha256:52fddcbc852935fad236826a1045504c7556d82b20f8a43d789372d0dadde7ac"},
+    {file = "sakura_site_msav-0.1.3-py3-none-any.whl", hash = "sha256:4aa5021f9121229d11b9ffe1d9359d7f17809bffa15a20b935185d32e8b8f110"},
+    {file = "sakura_site_msav-0.1.3.tar.gz", hash = "sha256:6938b67d15b691bf45c5d9bc59e5227a504ccb627e0c997f6ddb1811f8ebe57e"},
 ]
 
 [package.dependencies]
@@ -3257,6 +3257,7 @@ pynamodb_session_manager = ">=0.1.2,<1.0.0"
 pyzstd = ">=0.17.0,<1.0.0"
 s3pathlib = ">=2.3.3,<3.0.0"
 sakura_video_file = ">=0.1.1,<1.0.0"
+smart_open = "7.1.0"
 sqlalchemy = ">=2.0.33,<3.0.0"
 sqlalchemy_mate = ">=2.0.0.3,<3.0.0.0"
 sqlalchemy_upsert_kit = ">=0.1.1,<1.0.0"
@@ -4270,4 +4271,4 @@ test = ["home_secret", "pytest", "pytest-cov"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "81ac5fe5fa02ca8b71c8b6a0c82ac70a972adff0c2095f0a0a0254f7909e4b2d"
+content-hash = "34af681d6846c90fb173d6f62275111c10012046636ab3e10995fbe94f4d45f7"
