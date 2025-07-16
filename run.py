@@ -33,6 +33,14 @@ with bsm_dev.awscli():
 #     big_batch_size=10,
 #     micro_batch_size=3,
 # )
-project.step_04_01_crawl_all_video_details_in_all_html_database(
+
+from sakura_site_msav.project.s04_2_crawl_website_mixin import RoundRobinManager
+next_node_id = RoundRobinManager.get_next_node_id(bsm=project.bsm)
+project.crawl_all_video_details_in_one_html_database(
     lang_code=LangCodeEnum.cn.value,
+    node_id=next_node_id,
+    reset_lock=True,
 )
+# project.step_04_01_crawl_all_video_details_in_all_html_database(
+#     lang_code=LangCodeEnum.cn.value,
+# )

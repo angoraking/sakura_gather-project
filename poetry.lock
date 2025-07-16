@@ -3223,14 +3223,14 @@ crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
 
 [[package]]
 name = "sakura-site-msav"
-version = "0.1.4"
+version = "0.1.5"
 description = "missav 网站数据采集项目"
 optional = false
 python-versions = ">=3.13,<4.0"
 groups = ["main"]
 files = [
-    {file = "sakura_site_msav-0.1.4-py3-none-any.whl", hash = "sha256:bbaffb8a52bd444d65c309c105571e97514a2903839a6ab662517337dcdda545"},
-    {file = "sakura_site_msav-0.1.4.tar.gz", hash = "sha256:e86274a21b1a063fe276845bc9bc8ab39d7aa6bdcef006bfef2626d39b9f5cf0"},
+    {file = "sakura_site_msav-0.1.5-py3-none-any.whl", hash = "sha256:2744393fc59953a7780486ca6d93999e44fa48258ea2899c0d156e47c4b71720"},
+    {file = "sakura_site_msav-0.1.5.tar.gz", hash = "sha256:69ee3a414c5a49535a0006678c2f0aaf1b0b1e65e993be85eb4f35aad05b618a"},
 ]
 
 [package.dependencies]
@@ -4271,4 +4271,4 @@ test = ["home_secret", "pytest", "pytest-cov"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "2699855bde3a0a86d169de045d7e8bae527560397e273137b57dd2d63d7e9525"
+content-hash = "56654d0a16912347761ee622664825db07bb46c5c6639c4bbf3d63eca7005b2e"
